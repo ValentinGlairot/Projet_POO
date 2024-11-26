@@ -1,28 +1,27 @@
-#include "GameOfLife.h"
-#include "GameOfLifeGUI.h"
+#include "Game.h"
 #include <iostream>
-#include <string>
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cerr << "Utilisation : " << argv[0] << " <fichier_d_entree> <mode>" << std::endl;
-        std::cerr << "Modes disponibles : console, graphique" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <file_path> <iterations>" << std::endl;
         return 1;
     }
 
-    std::string inputFilePath = argv[1];
-    std::string mode = argv[2];
+    std::string filePath = argv[1];
+    int iterations = std::stoi(argv[2]);
 
-    if (mode == "console") {
-        GameOfLife game(inputFilePath);
+    Game game(filePath, iterations);
+
+    char mode;
+    std::cout << "Select mode: (c) Console, (g) Graphic: ";
+    std::cin >> mode;
+
+    if (mode == 'c') {
         game.runConsoleMode();
-    } else if (mode == "graphique") {
-        GameOfLifeGUI gameGUI(inputFilePath);
-        gameGUI.runGraphicMode();
+    } else if (mode == 'g') {
+        game.runGraphicMode();
     } else {
-        std::cerr << "Mode inconnu : " << mode << std::endl;
-        std::cerr << "Modes disponibles : console, graphique" << std::endl;
-        return 1;
+        std::cerr << "Invalid mode selected!" << std::endl;
     }
 
     return 0;
