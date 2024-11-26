@@ -2,22 +2,18 @@
 #define GRID_H
 
 #include <vector>
-#include "Cell.h"
 
 class Grid {
 private:
-    int width;
-    int height;
-    std::vector<std::vector<Cell>> cells;
+    int rows, cols;
+    std::vector<std::vector<bool>> cells;
 
 public:
-    Grid(int width, int height);
-    void initialize(const std::vector<std::vector<bool>>& initialState);
+    Grid(int rows, int cols, const std::vector<std::vector<bool>>& initialState);
+    bool isAlive(int row, int col) const;
+    int countLiveNeighbors(int row, int col) const;
     void update();
-    void display() const;
-    bool isStable(const Grid& other) const;
-    const std::vector<std::vector<Cell>>& getCells() const;
-    int countAliveNeighbors(int x, int y) const;
+    const std::vector<std::vector<bool>>& getCells() const;
 };
 
-#endif // GRID_H
+#endif
