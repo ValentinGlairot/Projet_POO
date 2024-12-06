@@ -75,84 +75,180 @@ Exemple :
     - Cellules mortes : noir
     - Obstacles vivants : rouge
     - Obstacles morts : gris
-   
+
+# Documentation Technicien 
     
-# Documentation pour le Technicien
+Architecture du Code
 
+Structure du Projet
 
-## Introduction
-
-Ce projet est conçu en C++ avec une architecture modulaire et extensible, compatible avec la programmation orientée objet (OOP).
-
-## Architecture
-
-Répertoire du projet :
+Projet_POO/
 
 ├── src/
-│   ├── main.cpp                 # Entrée principale du programme <br>
-│   ├── Cellule.cpp              # Gestion des cellules <br>
-│   ├── Grille.cpp               # Manipulation et mise à jour de la grille <br>
-│   ├── JeuDeLaVieStrategie.cpp  # Implémentation des règles du jeu <br>
+│   ├── main.cpp                 # Point d'entrée <br>
+│   ├── Cellule.cpp              # Implémentation de la classe Cellule <br>
+│   ├── Grille.cpp               # Gestion des cellules et règles du jeu <br>
+│   ├── JeuDeLaVieStrategie.cpp  # Stratégie de mise à jour des cellules <br>
 │   ├── AffichageConsole.cpp     # Affichage terminal <br>
-│   ├── AffichageGraphique.cpp   # Affichage via SFML <br>
+│   ├── AffichageGraphique.cpp   # Affichage SFML <br>
+│   └── Utils.cpp                # Fonctions utilitaires (facultatif) <br>
 ├── include/ <br>
-│   ├── *.h                      # Interfaces et définitions des classes <br>
+│   ├── Cellule.h                # Définition de la classe Cellule <br>
+│   ├── Grille.h                 # Définition de la classe Grille <br>
+│   ├── JeuDeLaVieStrategie.h    # Interface pour les stratégies <br>
+│   ├── AffichageConsole.h       # Interface pour l'affichage console <br>
+│   ├── AffichageGraphique.h     # Interface pour l'affichage graphique <br>
+│   └── Utils.h                  # Déclarations des fonctions utilitaires <br>
 ├── assets/ <br>
-│   └── examples/                # Exemples de grilles <br>
-├── README.md                    # Documentation <br>
-└── Makefile                     # Automatisation de compilation <br>
+│   └── examples/                # Exemples de fichiers de configuration <br>
+├── Makefile                     # Automatisation de la compilation <br>
+└── README.md                    # Documentation utilisateur <br>
 
 
-## Technologies
+## Principales Classes
 
-Langage : C++ (norme C++11 ou plus récente).
+### 1. Cellule
+  - Rôle : Représente une cellule individuelle.
 
-Bibliothèques :
+Attributs :
+  - etat : État de la cellule (0, 1, 2, 3).
+  - estObstacle : Booléen indiquant si la cellule est un obstacle.
 
-  - Standard : <vector>, <iostream>, etc.
-  - Graphique : SFML (Simple and Fast Multimedia Library).
+Méthodes principales :
+  - void changerEtat(int nouvelEtat) : Modifie l'état si la cellule n'est pas un obstacle.
+  - bool estVivante() : Vérifie si la cellule est vivante.
+  - bool estMorte() : Vérifie si la cellule est morte.
 
-## Compilation
-  - Vérifiez que le compilateur prend en charge C++11 :
-  - g++ --version
+### 3. Grille
 
-Compilez le projet avec le Makefile :
-  - make
+Rôle : Gère l'ensemble des cellules et applique les règles du jeu.
 
-Exécutable généré : jeu_de_la_vie.
+Attributs :
+  - std::vector<std::vector<Cellule>> cellules : Grille bidimensionnelle.
+  - int largeur, hauteur : Dimensions de la grille.
 
-## Points Clés Techniques
+Méthodes principales :
+  - void chargerDepuisFichier(const std::string& fichier) :
+  - Charge une grille depuis un fichier d'entrée.
+  - void mettreAJour(JeuDeLaVieStrategie& strategie) :
+  - Applique les règles à chaque cellule.
+  - void afficher() :
+  - Affiche la grille actuelle (console).
 
-Modularité
+### 4. JeuDeLaVieStrategie
 
-  - Classe Cellule : Définit les états et transitions d'une cellule.
-  - Classe Grille : Centralise la logique de mise à jour selon les règles.
+Rôle : Implémente les règles du Jeu de la Vie.
 
-Affichage :
-  - AffichageConsole pour l'interface textuelle.
-  - AffichageGraphique pour l'interface SFML.
+Méthodes :
+  - int calculerNouvelEtat(const Cellule& cellule, const Grille& grille) :
+  - Retourne le nouvel état d'une cellule en fonction des voisins.
 
-## Extensibilité
+### 5. Affichages (AffichageConsole et AffichageGraphique)
 
-Stratégie de jeu :
-  - Le fichier JeuDeLaVieStrategie.cpp peut être étendu pour intégrer de nouvelles règles.
+Rôle : Fournit les modes d'affichage.
 
-Affichage :
-  - Ajoutez de nouveaux modes (exemple : affichage web).
+Attributs :
+  - Console : Simple affichage textuel.
+  - Graphique : Utilisation de la bibliothèque SFML pour l'interface utilisateur.
 
-## Tests
+Méthodes principales :
+  - void afficher(const Grille& grille) :
+  - Rend visuellement la grille dans le mode respectif.
+  - Principes de Conception
 
-Scénarios :
-  - Grilles avec et sans obstacles.
-  - Grilles aléatoires.
-  - Automatisation : Créez des scripts pour valider les règles sur plusieurs itérations.
+### 1. Programmation Orientée Objet (OOP)
+  - Encapsulation : Les classes Cellule et Grille cachent leurs détails d'implémentation.
+  - Responsabilité unique : Chaque classe a une fonction bien définie :
+  - Cellule : Gère l'état individuel.
+  - Grille : Applique les règles sur l'ensemble des cellules.
+  - Affichages : Responsable uniquement de la représentation.
 
-## Améliorations Futures
+### 2. Modularité
+  - Les composants (affichage, logique des règles, gestion de grille) sont indépendants.
+  - Facilite la maintenance et l'ajout de nouvelles fonctionnalités.
 
-Optimisation :
-  - Utiliser des structures de données plus efficaces pour la grille (e.g., sparse matrix).
+## 3. Extensibilité
 
-Interface :
+Ajout de nouvelles règles :
+  - Implémenter une nouvelle classe héritant de JeuDeLaVieStrategie.
+Nouveaux modes d'affichage :
+  - Ajouter une classe implémentant une interface similaire à AffichageConsole ou AffichageGraphique.
+
+## Exécution Technique
+
+Compilation
+
+Le projet utilise un Makefile. Les options peuvent être ajustées pour inclure des dépendances ou des flags supplémentaires.
+
+
+Compilation :
+- make
+
+Exécution avec fichier d'entrée :
+- ./jeu_de_la_vie assets/examples/grille.txt
+
+Étapes de Mise à Jour
+
+### 1. Mise à Jour Partielle de la Grille
+
+  - Actuellement, la grille entière est recalculée à chaque itération. Une optimisation pourrait inclure :
+  - Un suivi des cellules modifiées pour limiter le recalcul.
+  - Utilisation d'une structure de données plus performante (e.g., std::unordered_set pour gérer les cellules actives).
+
+### 2. Ajout de Nouvelles Règles
+
+Créer une nouvelle stratégie héritant de JeuDeLaVieStrategie :
+
+class NouvelleRegleStrategie : public JeuDeLaVieStrategie {
+public:
+    int calculerNouvelEtat(const Cellule& cellule, const Grille& grille) override {
+        // Implémentez ici vos nouvelles règles.
+    }
+};
+
+
+### 3. Support d’autres Formats de Fichiers
+
+Ajouter un module pour lire des formats comme JSON ou CSV.*
+
+Exemple d’intégration JSON avec <nlohmann/json.hpp> :
+
+void chargerDepuisJSON(const std::string& fichier) {
+    std::ifstream inFile(fichier);
+    nlohmann::json j;
+    inFile >> j;
+    // Charger la grille à partir de l'objet JSON.
+}
+
+Dépannage et Debugging
+
+Outils Recommandés
+
+GDB : Pour le débogage pas à pas.
+
+Valgrind : Pour détecter les fuites de mémoire.
+
+Sanitizers : Utilisez -fsanitize=address pour détecter les erreurs liées à la mémoire.
+
+Erreurs Courantes
+
+## Segmentation Fault :
+
+  - Vérifiez les indices lors de l'accès à la grille (std::vector::at pour éviter les dépassements).
+
+## Mauvais affichage graphique :
+
+  - Vérifiez la configuration de SFML, en particulier les chemins vers les bibliothèques et les dépendances dynamiques.
+  - Améliorations Techniques Futures
+
+## Threading pour les mises à jour parallèles :
+  - Divisez la grille en sous-segments mis à jour en parallèle via std::thread.
+
+## Affichage Web :
+  - Intégration avec une bibliothèque comme WebAssembly ou une interface basée sur HTTP.
+  - Cette documentation technique permet aux développeurs de comprendre, maintenir, et étendre efficacement le projet.
+
+## Interface :
   -  Ajouter un menu interactif pour configurer la simulation.
-Persistance :
+## Persistance :
   -  Permettre l'export des itérations en fichier (CSV, JSON).
