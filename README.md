@@ -54,12 +54,12 @@ Un fichier de grille doit respecter cette structure :
 
 Exemple :
 
-5 5
-0 1 0 2 3
-1 0 1 0 0
-0 1 0 1 0
-2 0 0 1 3
-3 0 1 0 2
+5 5   \n
+0 1 0 2 3 \n
+1 0 1 0 0 \n
+0 1 0 1 0 \n
+2 0 0 1 3 \n
+3 0 1 0 2 \n
 
 
 ## Modes d'affichage
@@ -89,18 +89,18 @@ Ce projet est conçu en C++ avec une architecture modulaire et extensible, compa
 Répertoire du projet :
 
 ├── src/
-│   ├── main.cpp                 # Entrée principale du programme
-│   ├── Cellule.cpp              # Gestion des cellules
-│   ├── Grille.cpp               # Manipulation et mise à jour de la grille
-│   ├── JeuDeLaVieStrategie.cpp  # Implémentation des règles du jeu
-│   ├── AffichageConsole.cpp     # Affichage terminal
-│   ├── AffichageGraphique.cpp   # Affichage via SFML
-├── include/
-│   ├── *.h                      # Interfaces et définitions des classes
-├── assets/
-│   └── examples/                # Exemples de grilles
-├── README.md                    # Documentation
-└── Makefile                     # Automatisation de compilation
+│   ├── main.cpp                 # Entrée principale du programme \n
+│   ├── Cellule.cpp              # Gestion des cellules \n
+│   ├── Grille.cpp               # Manipulation et mise à jour de la grille \n
+│   ├── JeuDeLaVieStrategie.cpp  # Implémentation des règles du jeu \n
+│   ├── AffichageConsole.cpp     # Affichage terminal \n
+│   ├── AffichageGraphique.cpp   # Affichage via SFML \n
+├── include/ \n
+│   ├── *.h                      # Interfaces et définitions des classes \n
+├── assets/ \n
+│   └── examples/                # Exemples de grilles \n
+├── README.md                    # Documentation \n
+└── Makefile                     # Automatisation de compilation \n
 
 
 ## Technologies
