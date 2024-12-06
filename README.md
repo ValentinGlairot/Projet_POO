@@ -89,18 +89,18 @@ Ce projet est conçu en C++ avec une architecture modulaire et extensible, compa
 Répertoire du projet :
 
 ├── src/
-│   ├── main.cpp                 # Entrée principale du programme \n
-│   ├── Cellule.cpp              # Gestion des cellules \n
-│   ├── Grille.cpp               # Manipulation et mise à jour de la grille \n
-│   ├── JeuDeLaVieStrategie.cpp  # Implémentation des règles du jeu \n
-│   ├── AffichageConsole.cpp     # Affichage terminal \n
-│   ├── AffichageGraphique.cpp   # Affichage via SFML \n
-├── include/ \n
-│   ├── *.h                      # Interfaces et définitions des classes \n
-├── assets/ \n
-│   └── examples/                # Exemples de grilles \n
-├── README.md                    # Documentation \n
-└── Makefile                     # Automatisation de compilation \n
+│   ├── main.cpp                 # Entrée principale du programme <br>
+│   ├── Cellule.cpp              # Gestion des cellules <br>
+│   ├── Grille.cpp               # Manipulation et mise à jour de la grille <br>
+│   ├── JeuDeLaVieStrategie.cpp  # Implémentation des règles du jeu <br>
+│   ├── AffichageConsole.cpp     # Affichage terminal <br>
+│   ├── AffichageGraphique.cpp   # Affichage via SFML <br>
+├── include/ <br>
+│   ├── *.h                      # Interfaces et définitions des classes <br>
+├── assets/ <br>
+│   └── examples/                # Exemples de grilles <br>
+├── README.md                    # Documentation <br>
+└── Makefile                     # Automatisation de compilation <br>
 
 
 ## Technologies
