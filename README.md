@@ -211,42 +211,15 @@ public:
 
 Ajouter un module pour lire des formats comme JSON ou CSV.*
 
-Exemple d’intégration JSON avec <nlohmann/json.hpp> :
-
-void chargerDepuisJSON(const std::string& fichier) {
-    std::ifstream inFile(fichier);
-    nlohmann::json j;
-    inFile >> j;
-    // Charger la grille à partir de l'objet JSON.
-}
-
 Dépannage et Debugging
-
-Outils Recommandés
-
-GDB : Pour le débogage pas à pas.
-
-Valgrind : Pour détecter les fuites de mémoire.
-
-Sanitizers : Utilisez -fsanitize=address pour détecter les erreurs liées à la mémoire.
-
-Erreurs Courantes
-
-## Segmentation Fault :
-
-  - Vérifiez les indices lors de l'accès à la grille (std::vector::at pour éviter les dépassements).
 
 ## Mauvais affichage graphique :
 
   - Vérifiez la configuration de SFML, en particulier les chemins vers les bibliothèques et les dépendances dynamiques.
   - Améliorations Techniques Futures
 
-## Threading pour les mises à jour parallèles :
-  - Divisez la grille en sous-segments mis à jour en parallèle via std::thread.
-
 ## Affichage Web :
   - Intégration avec une bibliothèque comme WebAssembly ou une interface basée sur HTTP.
-  - Cette documentation technique permet aux développeurs de comprendre, maintenir, et étendre efficacement le projet.
 
 ## Interface :
   -  Ajouter un menu interactif pour configurer la simulation.
