@@ -54,12 +54,12 @@ Un fichier de grille doit respecter cette structure :
 
 Exemple :
 
-5 5   \n
-0 1 0 2 3 \n
-1 0 1 0 0 \n
-0 1 0 1 0 \n
-2 0 0 1 3 \n
-3 0 1 0 2 \n
+5 5   <br>
+0 1 0 2 3 <br>
+1 0 1 0 0 <br>
+0 1 0 1 0 <br>
+2 0 0 1 3 <br>
+3 0 1 0 2 <br>
 
 
 ## Modes d'affichage
