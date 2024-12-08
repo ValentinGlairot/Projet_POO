@@ -18,4 +18,4 @@ private:
     void sauvegarderGrilleDansFichier(const Grille& grille, const std::string& repertoire, int iteration);
 };
 
-#endif // AFFICHAGE_CONSOLE_H
+#endif
