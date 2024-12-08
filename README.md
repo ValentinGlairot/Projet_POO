@@ -20,7 +20,7 @@ SFML pour l'affichage graphique :
 ## Installation
 
 Cloner le dépôt GitHub :
-  - git clone https://github.com/ValentinGlairot/Projet_POO.git
+  - git clone [https://github.com/ValentinGlairot/Projet_POO.git](https://github.com/ValentinGlairot/Projet_POO/tree/CODE_FINAL)
 
 Accéder au répertoire du projet :
   - cd Projet_POO
