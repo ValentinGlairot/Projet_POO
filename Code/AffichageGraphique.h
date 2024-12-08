@@ -27,4 +27,4 @@ public:
 
 };
 
-#endif // AFFICHAGE_GRAPHIQUE_H
+#endif
