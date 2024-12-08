@@ -52,4 +52,4 @@ public:
     bool operator==(const Grille& autre) const;
 };
 
-#endif // GRILLE_H
+#endif
