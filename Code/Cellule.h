@@ -27,4 +27,4 @@ public:
     bool operator==(const Cellule& autre) const;
 };
 
-#endif // CELLULE_H
+#endif
