@@ -12,4 +12,4 @@ public:
     virtual void mettreAJour(Grille& grille) = 0;
 };
 
-#endif // MISE_A_JOUR_STRATEGIE_H
+#endif
