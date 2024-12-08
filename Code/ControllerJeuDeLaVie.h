@@ -22,4 +22,4 @@ private:
     void modeGraphique();
 };
 
-#endif // CONTROLLER_JEU_DE_LA_VIE_H
+#endif
