@@ -11,4 +11,4 @@ public:
     void mettreAJour(Grille& grille) override;
 };
 
-#endif // JEU_DE_LA_VIE_STRATEGIE_H
+#endif
