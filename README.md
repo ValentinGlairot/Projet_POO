@@ -218,10 +218,8 @@ Dépannage et Debugging
   - Vérifiez la configuration de SFML, en particulier les chemins vers les bibliothèques et les dépendances dynamiques.
   - Améliorations Techniques Futures
 
-## Affichage Web :
-  - Intégration avec une bibliothèque comme WebAssembly ou une interface basée sur HTTP.
-
 ## Interface :
   -  Ajouter un menu interactif pour configurer la simulation.
+    
 ## Persistance :
   -  Permettre l'export des itérations en fichier (CSV, JSON).
