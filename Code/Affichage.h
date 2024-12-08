@@ -16,4 +16,4 @@ public:
     virtual void demarrerMode(Grille& grille, const std::string& nomFichierEntree = "") = 0;
 };
 
-#endif // AFFICHAGE_H
+#endif
